@@ -1,11 +1,17 @@
 <script lang="ts">
 	import { enhance } from '$app/forms'
 	import { page } from '$app/stores'
-	import { AppBar, LightSwitch } from '@skeletonlabs/skeleton'
+	import { AppBar, LightSwitch  } from '@skeletonlabs/skeleton'
 	import { Flame } from 'lucide-svelte'
 
 	$: user = $page.data.user
+
+
+
 </script>
+
+
+
 
 <AppBar>
 	<svelte:fragment slot="lead">
@@ -14,10 +20,17 @@
 		</a>
 	</svelte:fragment>
 
+
+
+
+
 	<svelte:fragment slot="trail">
+		<LightSwitch />
+
 		<a href="/pricing">Pricing</a>
-		<a href="/authenticated">Authed</a>
+
 		{#if user}
+			<a href="/profile">Profile</a>
 			<form method="POST" action="/logout" use:enhance>
 				<button type="submit">Sign out</button>
 			</form>
@@ -26,6 +39,7 @@
 			<a href="/register">Register</a>
 		{/if}
 
-		<LightSwitch />
+
+		
 	</svelte:fragment>
 </AppBar>
