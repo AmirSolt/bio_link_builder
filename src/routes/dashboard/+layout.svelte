@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { Eye, LineChart, Settings, Palette, LayoutTemplate, Home} from 'lucide-svelte'
+
 	import { AppRail, AppRailTile } from '@skeletonlabs/skeleton'
 	import { writable } from 'svelte/store'
 	import type { Writable } from 'svelte/store'
@@ -21,18 +23,24 @@
 	
 
         <svelte:fragment slot="lead">
-            <AppRailTile  value={0} tag="a" href="/profile" >
-                Home
+            <AppRailTile  value={0} tag="a" href="/dashboard" >
+                <Home />
             </AppRailTile>
         </svelte:fragment>
     
     
         <!-- Default -->
-        <AppRailTile value={1} tag="a" href="/profile/editor">
-            Editor
+        <AppRailTile value={1} tag="a" href="/dashboard/editor">
+            <LayoutTemplate />
         </AppRailTile>
-        <AppRailTile value={2} tag="a" href="/profile/settings">
-            Settings
+        <AppRailTile value={3} tag="a" href="/dashboard/analytics">
+            <LineChart />
+        </AppRailTile>
+        <AppRailTile value={4} tag="a" href="/dashboard/themes" regionIcon="opacity-50">
+            <Palette />
+        </AppRailTile>
+        <AppRailTile value={2} tag="a" href="/dashboard/account">
+            <Settings />
         </AppRailTile>
     
     
@@ -40,12 +48,13 @@
         <svelte:fragment slot="trail">
             <AppRailTile
                 tag="a"
-                value={3}
-                href="/{user.username}"
+                value={5}
+                
+                href="/{user.username}" 
                 target="_blank"
-                title="Trail slot tile."
+                title="Preview"
             >
-                Preview
+                <Eye />
             </AppRailTile>
         </svelte:fragment>
     </AppRail>
