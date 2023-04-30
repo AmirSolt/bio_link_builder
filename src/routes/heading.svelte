@@ -25,11 +25,11 @@
 
 	<svelte:fragment slot="trail">
 		
-		<a href="/support">Support</a>
-		<a href="/pricing">Pricing</a>
+		<a class="btn variant-ringed" href="/support">Support</a>
+		<a class="btn variant-ringed" href="/pricing">Pricing</a>
 		
 		{#if user}
-		<a href="/dashboard"><User /></a>
+		<a class="btn-icon variant-filled" href="/dashboard"><User /></a>
 		
 		{:else}
 		<a href="/login">Log in</a>
